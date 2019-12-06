@@ -65,8 +65,8 @@ public class AssetLoader {
     public static void createAnimation(String path, String name) {
         HashMap<String, Animation<TextureRegion>> myAnimations = new HashMap<>();
 
-        List<String> dirs = getDirs("core/assets/graphics/animations/" + path);
-
+        List<String> dirs = getDirs("graphics/animations/" + path);
+        Gdx.app.log("dupa", "dupa");
         for (String child: dirs) {
             Gdx.app.log("AssetLoader", child);
             List<String> dirs2 = getFiles(child);
@@ -74,7 +74,7 @@ public class AssetLoader {
             int i = 0;
             for (String childTexture: dirs2) {
                 Gdx.app.log("AssetLoader ------  ", childTexture);
-                textures[i] = new TextureRegion(new Texture(childTexture.split("core/assets/")[1]));
+                textures[i] = new TextureRegion(new Texture(childTexture));
                 i++;
             }
             Animation<TextureRegion> animation = new Animation<TextureRegion>(1f, textures);
