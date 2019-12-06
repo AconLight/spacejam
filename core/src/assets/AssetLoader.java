@@ -23,9 +23,11 @@ public class AssetLoader {
     private static HashMap<String, Texture> assets = new HashMap<>();
     private static HashMap<String, HashMap<String, Animation<TextureRegion>>> animations = new HashMap<>();
 
-    public static GameObject getAsset(String name) {
-        GameObject gameObject = new SpriteObject();
-        gameObject.addActor(new Image(assets.get(name)));
+    public static SpriteObject getAsset(String name) {
+        SpriteObject gameObject = new SpriteObject();
+        Texture tex = assets.get(name);
+        gameObject.addActor(new Image(tex));
+        gameObject.setBounds(0, 0, tex.getWidth(), tex.getHeight());
         return gameObject;
     }
 
@@ -41,9 +43,11 @@ public class AssetLoader {
         return gameObject;
     }
 
-    public static GameObject getAsset(String name, float index) {
-        GameObject gameObject = new SpriteObject(index);
-        gameObject.addActor(new Image(assets.get(name)));
+    public static SpriteObject getAsset(String name, float index) {
+        SpriteObject gameObject = new SpriteObject(index);
+        Texture tex = assets.get(name);
+        gameObject.addActor(new Image(tex));
+        gameObject.setBounds(0, 0, tex.getWidth(), tex.getHeight());
         return gameObject;
     }
 
