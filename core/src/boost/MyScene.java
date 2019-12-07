@@ -8,7 +8,7 @@ public class MyScene {
     protected GameObjectRenderer renderer;
 
     public MyScene() {
-        this.stage = new Stage(new StretchViewport(1920, 1280));
+        this.stage = new Stage();
         this.renderer = new GameObjectRenderer(stage);
     }
 

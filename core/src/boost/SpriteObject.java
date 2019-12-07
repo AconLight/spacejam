@@ -52,7 +52,7 @@ public class SpriteObject extends GameObject {
         if (GameObjectManager.currentIndex == index) {
             super.draw(batch, parentAlfa * alfa);
             if (currentAnimation != null) {
-                batch.draw(currentAnimation.getKeyFrame(time), getAbsoluteX() + currentAnimation.getKeyFrame(time).getRegionWidth() / 2 * getScaleX(),
+                batch.draw(currentAnimation.getKeyFrame(time), getX() + currentAnimation.getKeyFrame(time).getRegionWidth() / 2 * getScaleX(),
                         getY() + currentAnimation.getKeyFrame(time).getRegionHeight() / 2 * getScaleY(),
                         currentAnimation.getKeyFrame(time).getRegionWidth() / 2, currentAnimation.getKeyFrame(time).getRegionHeight() / 2,
                         currentAnimation.getKeyFrame(time).getRegionWidth(), currentAnimation.getKeyFrame(time).getRegionHeight(),
