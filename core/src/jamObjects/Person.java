@@ -9,6 +9,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.gameComponents.Movement;
 import com.mygdx.gameComponents.MovementDrag;
+import com.mygdx.scenes.MySceneManager;
 import stefan.PlayerGenerator;
 
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class Person extends GameObject {
         movementDrag = new MovementDrag(movement, 0.92f);
         addComponent(movementDrag);
 
-        aim = AssetLoader.getAsset("aim");
+        aim = AssetLoader.getAsset("aim", 2);
         aim.setPosition(75, 150);
     }
 
@@ -91,19 +92,23 @@ public class Person extends GameObject {
     public void setRight() {
         removeAnimations();
         addActor(animationRight);
+        skill.right();
     }
     public void setLeft() {
 
         removeAnimations();
         addActor(animationLeft);
+        skill.left();
     }
     public void setJumpRight() {
         removeAnimations();
         addActor(animationJumpRight);
+        skill.right();
     }
     public void setJumpLeft() {
         removeAnimations();
         addActor(animationJumpRight);
+        skill.left();
     }
 
     float downTime = 0;
@@ -128,14 +133,11 @@ public class Person extends GameObject {
         }
 
         for (Platform p: platforms) {
-            Gdx.app.log("Person", movement.position.x + ", " + movement.position.y + ", "
-                    + p.getX() + ", " + p.getY() + ", " + p.sprite.getWidth() + ", " + p.sprite.getHeight() + ", "
-                    );
-            Gdx.app.log("Person", getX() + ", " + getY());
+
             if (movement.velocity.y < 0 && !isDown)
             if (movement.position.x + 50 > p.getX() && movement.position.x < p.getX() + p.sprite.getWidth()-20 &&
                     movement.position.y > p.getY() + p.sprite.getHeight() - 130 && movement.position.y < p.getY() + p.sprite.getHeight()-105) {
-                Gdx.app.log("Person", "col");
+
                 movement.position.set(movement.position.x, p.getY() + p.sprite.getHeight()-105);
                 movement.velocity.set(movement.velocity.x, 0);
                 isStanding = true;
@@ -222,12 +224,47 @@ public class Person extends GameObject {
         }
         aimX -= 75;
         aimY -= 150;
-        aimX *= 0.96f;
-        aimY *= 0.96f;
+        aimX *= 0.92f;
+        aimY *= 0.92f;
         aimX += 75;
         aimY += 150;
         aim.setPosition(aimX, aimY);
         movement.acceleration.set(ax, ay);
         movement.velocity.set(vx, vy);
+
+        // collosions
+        for (Projectile p: projectiles) {
+            if (p.person != this && !p.isDestroyed && !p.person.skill.isUsed)
+            if (p.getX() + 20 > getX() && p.getX() < getX() + 150 &&
+                    p.getY() + 20 > getY() && p.getY() < getY() + 250) {
+                if (skill instanceof PistolShield) {
+                    if (((PistolShield) skill).lives > 0) {
+                        ((PistolShield) skill).lives--;
+                        ((PistolShield) skill).shield();
+                        p.isDestroyed = true;
+                        continue;
+                    }
+                }
+                playerId = p.person.playerId;
+                p.person.playerId = 0;
+                p.isDestroyed = true;
+                p.person.skill.isUsed = true;
+                p.person.destroy();
+                MySceneManager.game.removeProjectile(p);
+                Gdx.app.log("Person", "colllllllllllllllllllllllllllllllllllllllllll");
+                setAsPlayer();
+                Random rand = new Random();
+                int r = rand.nextInt(3);
+                if (r == 0)
+                    setSkill(new Pistol(this));
+                if (r == 1)
+                    setSkill(new PistolShield(this));
+                if (r == 2)
+                    setSkill(new Shotgun(this));
+            }
+        }
+    }
+    public void destroy() {
+        remove();
     }
 }

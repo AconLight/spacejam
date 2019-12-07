@@ -32,6 +32,7 @@ public class SpriteObject extends GameObject {
         super(index);
         animations = new HashMap<>();
         time = 0;
+        color = Color.WHITE;
     }
 
     public void chooseAnimation(String name) {

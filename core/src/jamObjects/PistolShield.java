@@ -4,18 +4,24 @@ import assets.AssetLoader;
 import boost.GameObject;
 import com.mygdx.scenes.MySceneManager;
 
-public class Pistol extends Skill {
-    GameObject pistolR, pistolL;
-    public Pistol(Person person) {
+public class PistolShield extends Skill {
+    int lives;
+    GameObject pistolR, pistolL, shield;
+    public void shield() {
+        removeActor(shield);
+    }
+    public PistolShield(Person person) {
         super(person);
+        lives = 1;
         pistolR = AssetLoader.getAsset("pistol");
         pistolR.setPosition(135, 250);
         pistolL = AssetLoader.getAsset("pistolLeft");
         pistolL.setPosition(55, 250);
         addActor(pistolR);
+        shield = AssetLoader.getAsset("shield");
+        shield.setPosition(70, 130);
+        addActor(shield);
     }
-    float time = 1f;
-
     public void left() {
         removeActor(pistolR);
         removeActor(pistolL);
@@ -27,6 +33,7 @@ public class Pistol extends Skill {
         removeActor(pistolL);
         addActor(pistolR);
     }
+    float time = 1f;
 
     public void act(float delta) {
         super.act(delta);

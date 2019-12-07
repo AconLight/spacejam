@@ -5,9 +5,13 @@ import boost.GameObject;
 import com.mygdx.gameComponents.Movement;
 
 public class Projectile extends GameObject {
+    public boolean isDestroyed;
     Movement movement;
-    public Projectile(float x, float y, float vx, float vy) {
+    public Person person;
+    public Projectile(float x, float y, float vx, float vy, Person person) {
         super();
+        isDestroyed = false;
+        this.person = person;
         addActor(AssetLoader.getAsset("shot"));
         movement = new Movement(this);
         movement.velocity.set(vx, vy);

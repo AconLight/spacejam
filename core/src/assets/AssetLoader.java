@@ -77,6 +77,10 @@ public class AssetLoader {
         createAsset("graphics/sprites/shot.png", "shot");
         createAsset("graphics/sprites/pistol.png", "pistol");
         createAsset("graphics/sprites/aim.png", "aim");
+        createAsset("graphics/sprites/shield.png", "shield");
+        createAsset("graphics/sprites/pistolLeft.png", "pistolLeft");
+        createAsset("graphics/sprites/shotgun.png", "shotgun");
+        createAsset("graphics/sprites/shotgunLeft.png", "shotgunLeft");
         loadAnimations();
     }
 

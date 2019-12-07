@@ -4,13 +4,15 @@ import assets.AssetLoader;
 import boost.GameObject;
 import com.mygdx.scenes.MySceneManager;
 
-public class Pistol extends Skill {
+import java.util.Random;
+
+public class Shotgun extends Skill {
     GameObject pistolR, pistolL;
-    public Pistol(Person person) {
+    public Shotgun(Person person) {
         super(person);
-        pistolR = AssetLoader.getAsset("pistol");
+        pistolR = AssetLoader.getAsset("shotgun");
         pistolR.setPosition(135, 250);
-        pistolL = AssetLoader.getAsset("pistolLeft");
+        pistolL = AssetLoader.getAsset("shotgunLeft");
         pistolL.setPosition(55, 250);
         addActor(pistolR);
     }
@@ -31,11 +33,14 @@ public class Pistol extends Skill {
     public void act(float delta) {
         super.act(delta);
         time += delta;
+        if (time > 1f) {
+            isUsed = false;
+        }
     }
 
     @Override
     public void use() {
-        if (time < 1f) {
+        if (time < 2f) {
             return;
         } else {
             time = 0;
@@ -43,9 +48,12 @@ public class Pistol extends Skill {
             float dy = person.aim.getY() - 150;
             float r2 = dx * dx + dy * dy;
             float r = (float) Math.sqrt(r2);
-            float xx = dx / r * 3000;
-            float yy = dy / r * 3000;
-            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 150, xx, yy, person));
+            float xx = dx / r * 1500;
+            float yy = dy / r * 1500;
+            Random rand = new Random();
+            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 150, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
+            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 150, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
+            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 150, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
         }
     }
 }
