@@ -3,6 +3,7 @@ package wojtek;
 import boost.GameObject;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import jamObjects.Person;
+import jamObjects.Pistol;
 import jamObjects.Platform;
 import stefan.PlayerGenerator;
 
@@ -28,10 +29,14 @@ public class GameLoader {
             persons.add(gameObject);
         }
         Person gameObject = new Person(platforms, 100, 100);
+        gameObject.setSkill(new Pistol(gameObject));
         gameObject.playerId = 1;
+        gameObject.setAsPlayer();
         persons.add(gameObject);
         Person gameObject2 = new Person(platforms, 1700, 100);
+        gameObject2.setSkill(new Pistol(gameObject2));
         gameObject2.playerId = 2;
+        gameObject2.setAsPlayer();
         persons.add(gameObject2);
 
         gameObjects.addAll(platforms);

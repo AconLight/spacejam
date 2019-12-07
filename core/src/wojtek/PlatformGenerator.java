@@ -9,7 +9,7 @@ public class PlatformGenerator {
 
     public static ArrayList<Platform> generate() {
         ArrayList<Platform> platforms = new ArrayList<>();
-
+        
         //podloga
         for(int x = 0; x <= 1920; x+=200)
             platforms.add(new Platform(x, 0, "platform1"));
