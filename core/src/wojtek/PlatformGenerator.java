@@ -17,8 +17,10 @@ public class PlatformGenerator {
         for(int x = 200; x <= 1920; x+=500)
             platforms.add(new Platform(x, 0, "small"));
 
-        platforms.add(new Platform(200, 270, "platform1"));
-        platforms.add(new Platform(400, 270, "platform1"));
+        platforms.add(new Platform(200, 250, "platform1"));
+        platforms.add(new Platform(400, 250, "platform1"));
+
+        platforms.add(new Platform(350, 750, "small"));
 
         platforms.add(new Platform(1500, 270, "platform1"));
 
@@ -28,11 +30,15 @@ public class PlatformGenerator {
         platforms.add(new Platform(800, 600, "small"));
         platforms.add(new Platform(600, 600, "platform1"));
 
+        platforms.add(new Platform(750, 350, "small"));
+
         platforms.add(new Platform(1200, 700, "platform1"));
         platforms.add(new Platform(1400, 700, "platform1"));
 
+        platforms.add(new Platform(1720, 500, "small"));
+
         platforms.add(new Platform(1680, 900, "platform1"));
-        platforms.add(new Platform(1800, 800, "platform1"));
+        platforms.add(new Platform(1800, 900, "platform1"));
         platforms.add(new Platform(-180, 800, "platform1"));
         platforms.add(new Platform(-280, 800, "platform1"));
 
