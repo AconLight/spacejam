@@ -27,7 +27,7 @@ public class SceneManager {
 
     public static void switchToScene(MyScene scene) {
         scenesToRemove.addAll(scenes);
-        scenesToRemove.remove(scene);
+        scenesToAdd.add(scene);
     }
 
     public static void act() {

@@ -15,19 +15,19 @@ public class GameLoader {
         ArrayList<GameObject> gameObjects = new ArrayList<>();
 
         // Persons
-        ArrayList<GameObject> persons = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            GameObject gameObject = new Person();
-            gameObject.setPosition(rand.nextInt(1800), 10);
-            persons.add(gameObject);
-        }
+//        ArrayList<GameObject> persons = new ArrayList<>();
+//        for (int i = 0; i < 10; i++) {
+//            GameObject gameObject = new Person();
+//            gameObject.setPosition(rand.nextInt(1800), 10);
+//            persons.add(gameObject);
+//        }
 
         // Platforms
         ArrayList<GameObject> platforms = new ArrayList<>();
         platforms.addAll(PlatformGenerator.generate());
 
         gameObjects.addAll(platforms);
-        gameObjects.addAll(persons);
+        //gameObjects.addAll(persons);
         return gameObjects;
     }
 }

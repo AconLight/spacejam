@@ -12,5 +12,6 @@ public class Platform extends GameObject {
         super();
         setPosition(x, y);
         sprite = AssetLoader.getAsset(name);
+        addActor(sprite);
     }
 }

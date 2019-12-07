@@ -71,6 +71,7 @@ public class Menu extends MyScene {
                 play.alfa = 0f;
                 quit.alfa = 0f;
                 SceneManager.switchToScene(MySceneManager.game);
+                startGameTime = -1;
             }
         }
     }

@@ -61,6 +61,7 @@ public class AssetLoader {
         createAsset("square.png", "square");
         createAsset("graphics/sprites/quit.png", "quit");
         createAsset("graphics/sprites/play.png", "play");
+        createAsset("graphics/sprites/platform1.png", "platform1");
         loadAnimations();
     }
 
