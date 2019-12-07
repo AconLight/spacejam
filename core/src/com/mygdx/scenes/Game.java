@@ -14,7 +14,7 @@ public class Game extends MyScene {
     public Game() {
         super();
         bg = AssetLoader.getAsset("bg");
-        bg.setScale(4);
+        bg.setScale(2);
         stage.addActor(bg);
         ArrayList<GameObject> gameObjects = GameLoader.load();
         for (GameObject go: gameObjects) {
