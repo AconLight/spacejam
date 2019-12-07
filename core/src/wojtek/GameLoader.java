@@ -43,7 +43,7 @@ public class GameLoader {
         gameObject.playerId = 1;
         gameObject.setAsPlayer();
         persons.add(gameObject);
-        Person gameObject2 = new Person(platforms, 1700, 100, 0);
+        Person gameObject2 = new Person(platforms, 1500, 650, 0);
         gameObject2.setSkill(new Pistol(gameObject2));
         gameObject2.playerId = 2;
         gameObject2.setAsPlayer();

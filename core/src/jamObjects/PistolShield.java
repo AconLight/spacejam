@@ -54,6 +54,7 @@ public class PistolShield extends Skill {
             float xx = dx / r * 3000;
             float yy = dy / r * 3000;
             MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 250, xx, yy, person));
+            AssetLoader.pistol.play();
         }
     }
 }
