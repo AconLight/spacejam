@@ -31,6 +31,11 @@ public class PlatformGenerator {
         platforms.add(new Platform(1200, 700, "platform1"));
         platforms.add(new Platform(1400, 700, "platform1"));
 
+        platforms.add(new Platform(1680, 900, "platform1"));
+        platforms.add(new Platform(1800, 800, "platform1"));
+        platforms.add(new Platform(-180, 800, "platform1"));
+        platforms.add(new Platform(-280, 800, "platform1"));
+
         return platforms;
     }
 }
