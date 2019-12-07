@@ -25,7 +25,7 @@ public class PlayerGenerator {
             body.chooseAnimation("body"  + random.nextInt(nBodys) + "_right");
             SpriteObject legs = AssetLoader.getAnimation("legs");
             legs.chooseAnimation("legs" + random.nextInt(nLegs) + "_right");
-            // legs.currentAnimation.setFrameDuration(0.125f);
+            legs.currentAnimation.setFrameDuration(0.125f);
             legs.color = new Color(r, g, b, 1f);
 
 
@@ -45,7 +45,7 @@ public class PlayerGenerator {
         body.chooseAnimation("body0"  + /*random.nextInt(nBodys) +*/ "_left");
         SpriteObject legs = AssetLoader.getAnimation("legs");
         legs.chooseAnimation("legs0" + /*random.nextInt(nLegs) +*/ "_left");
-        // legs.currentAnimation.setFrameDuration(0.125f);
+        legs.currentAnimation.setFrameDuration(0.125f);
         legs.color = new Color(r, g, b, 1f);
 
         player.addActor(legs);
@@ -64,7 +64,7 @@ public class PlayerGenerator {
         body.chooseAnimation("body0_right");
         SpriteObject legs = AssetLoader.getAnimation("legs");
         legs.chooseAnimation("legs0" + /*random.nextInt(nLegs) +*/ "_right");
-        // legs.currentAnimation.setFrameDuration(0.125f);
+        legs.currentAnimation.setFrameDuration(0.125f);
         legs.color = new Color(r, g, b, 1f);
 
 
@@ -85,7 +85,7 @@ public class PlayerGenerator {
         body.chooseAnimation("body0"  + /*random.nextInt(nBodys) +*/ "_left");
         SpriteObject legs = AssetLoader.getAnimation("legs");
         legs.chooseAnimation("jump");
-        // legs.currentAnimation.setFrameDuration(0.125f);
+        legs.currentAnimation.setFrameDuration(0.125f);
         legs.color = new Color(r, g, b, 1f);
 
         player.addActor(legs);
@@ -104,7 +104,7 @@ public class PlayerGenerator {
         body.chooseAnimation("body0_right");
         SpriteObject legs = AssetLoader.getAnimation("legs");
         legs.chooseAnimation("jump");
-        // legs.currentAnimation.setFrameDuration(0.125f);
+        legs.currentAnimation.setFrameDuration(0.125f);
         legs.color = new Color(r, g, b, 1f);
 
         player.addActor(legs);
