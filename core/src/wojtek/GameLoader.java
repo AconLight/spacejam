@@ -2,6 +2,7 @@ package wojtek;
 
 import boost.GameObject;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mygdx.scenes.MySceneManager;
 import jamObjects.Person;
 import jamObjects.Pistol;
 import jamObjects.Platform;
@@ -13,12 +14,14 @@ import java.util.Random;
 public class GameLoader {
 
     public static ArrayList<Platform> platforms;
+    public static ArrayList<GameObject> persons;
+
 
     public static ArrayList<GameObject> load() {
         Random rand = new Random();
 
         ArrayList<GameObject> gameObjects = new ArrayList<>();
-
+        spawning = new ArrayList<>();
 
 
         // Platforms
@@ -26,7 +29,7 @@ public class GameLoader {
         platforms.addAll(PlatformGenerator.generate());
 
         // Persons
-        ArrayList<GameObject> persons = new ArrayList<>();
+        persons = new ArrayList<>();
 
 
         persons.add(new Person(platforms, 300, 300, 0));
@@ -34,9 +37,6 @@ public class GameLoader {
         persons.add(new Person(platforms, 1600, 270, 0));
         persons.add(new Person(platforms, 1050, 310, 0));
 
-        persons.add(createPerson());
-        persons.add(createPerson());
-        persons.add(createPerson());
 
         Person gameObject = new Person(platforms, 100, 100, 0);
         gameObject.setSkill(new Pistol(gameObject));
@@ -54,12 +54,20 @@ public class GameLoader {
         return gameObjects;
     }
 
+    public static ArrayList<GameObject> spawning;
+
     public static GameObject createPerson(){
         Random random = new Random();
 
-        if(random.nextBoolean())
-            return new Person(platforms, 1750, 950, -1);
-        else
-            return new Person(platforms, -250, 900, 1);
+        if(random.nextBoolean()) {
+            spawning.add(new Person(platforms, 1750, 950, -1));
+            persons.add(spawning.get(spawning.size()-1));
+        }
+        else {
+            spawning.add(new Person(platforms, -250, 900, 1));
+            persons.add(spawning.get(spawning.size()-1));
+        }
+        MySceneManager.game.gameObjects.add(spawning.get(spawning.size()-1));
+        return spawning.get(spawning.size()-1);
     }
 }

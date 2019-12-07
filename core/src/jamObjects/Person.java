@@ -11,6 +11,7 @@ import com.mygdx.gameComponents.Movement;
 import com.mygdx.gameComponents.MovementDrag;
 import com.mygdx.scenes.MySceneManager;
 import stefan.PlayerGenerator;
+import wojtek.GameLoader;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -132,8 +133,8 @@ public class Person extends GameObject {
             }
         }
 
-        if (movement.position.y <= -200) {
-            movement.position.set(movement.position.x, -200);
+        if (movement.position.y <= -100) {
+            movement.position.set(movement.position.x, -100);
             movement.velocity.set(movement.velocity.x, 0);
             isStanding = true;
         }
@@ -284,6 +285,14 @@ public class Person extends GameObject {
                         continue;
                     }
                 }
+                if (playerId == 2) {
+                    MySceneManager.game.winLeft();
+                }
+                if (playerId == 1) {
+                    MySceneManager.game.winRight();
+                }
+
+                MySceneManager.game.stage.addActor(GameLoader.createPerson());
                 playerId = p.person.playerId;
                 p.person.playerId = 0;
                 p.isDestroyed = true;
@@ -301,6 +310,7 @@ public class Person extends GameObject {
                     setSkill(new PistolShield(this));
                 if (r == 2)
                     setSkill(new Shotgun(this));
+
             }
         }
     }
