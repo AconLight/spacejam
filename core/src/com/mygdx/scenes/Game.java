@@ -44,7 +44,10 @@ public class Game extends MyScene {
         isOver = true;
         AssetLoader.soundtrack_menu.play();
         AssetLoader.soundtrack.stop();
+
         time2 = 0;
+
+        AssetLoader.end.play();
     }
 
 
@@ -56,6 +59,7 @@ public class Game extends MyScene {
         AssetLoader.soundtrack_menu.play();
         AssetLoader.soundtrack.stop();
         time2 = 0;
+        AssetLoader.end.play();
     }
 
     float time2;
