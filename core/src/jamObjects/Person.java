@@ -19,7 +19,7 @@ import java.util.Random;
 public class Person extends GameObject {
 
     public ArrayList<Projectile> projectiles;
-    public GameObject aim;
+    public GameObject aim, light;
     public int playerId;
     public boolean isStanding;
     public GameObject animationRight, animationLeft, animation, animationJumpRight, animationJumpLeft;
@@ -47,12 +47,16 @@ public class Person extends GameObject {
 
         aim = AssetLoader.getAsset("aim", 2);
         aim.setPosition(75, 150);
+        light = AssetLoader.getAsset("light", 0.2f);
+        light.setScale(4);
+        light.setPosition(60, 120);
     }
 
     public void setSkill(Skill skill) {
         removeActor(skill);
         this.skill = skill;
         addActor(skill);
+        addActorAt(0, light);
     }
 
     public void setAsPlayer() {
@@ -133,8 +137,8 @@ public class Person extends GameObject {
             }
         }
 
-        if (movement.position.y <= -100) {
-            movement.position.set(movement.position.x, -100);
+        if (movement.position.y <= -150) {
+            movement.position.set(movement.position.x, -150);
             movement.velocity.set(movement.velocity.x, 0);
             isStanding = true;
         }

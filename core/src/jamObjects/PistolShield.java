@@ -20,6 +20,7 @@ public class PistolShield extends Skill {
         addActor(pistolR);
         shield = AssetLoader.getAsset("shield");
         shield.setPosition(70, 130);
+        shield.setShader("drunk");
         addActor(shield);
         AssetLoader.tarcza.play();
     }
@@ -35,10 +36,14 @@ public class PistolShield extends Skill {
         addActor(pistolR);
     }
     float time = 1f;
-
+    float time2 = 0;
     public void act(float delta) {
         super.act(delta);
         time += delta;
+        time2 += delta;
+        shield.shader.begin();
+        shield.shader.setUniformf("time", time2/2);
+        shield.shader.end();
     }
 
     @Override
