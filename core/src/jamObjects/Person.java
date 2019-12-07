@@ -132,8 +132,8 @@ public class Person extends GameObject {
             }
         }
 
-        if (movement.position.y <= -200) {
-            movement.position.set(movement.position.x, -200);
+        if (movement.position.y <= -100) {
+            movement.position.set(movement.position.x, -100);
             movement.velocity.set(movement.velocity.x, 0);
             isStanding = true;
         }
