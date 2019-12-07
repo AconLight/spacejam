@@ -54,6 +54,7 @@ public class Shotgun extends Skill {
             MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 250, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
             MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 250, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
             MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 250, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
+            AssetLoader.gun.play();
         }
     }
 }

@@ -305,6 +305,7 @@ public class Person extends GameObject {
         }
     }
     public void destroy() {
+        AssetLoader.swap.play();
         remove();
     }
 

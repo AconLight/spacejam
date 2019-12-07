@@ -27,7 +27,7 @@ public class AssetLoader {
     private static HashMap<String, Texture> assets = new HashMap<>();
     private static HashMap<String, HashMap<String, Animation<TextureRegion>>> animations = new HashMap<>();
     public static Music soundtrack, soundtrack_menu;
-    public static Sound pistol, jump;
+    public static Sound pistol, jump, swap, end, gun, tarcza;
 
     public static SpriteObject getAsset(String name) {
         SpriteObject gameObject = new SpriteObject();
@@ -95,6 +95,10 @@ public class AssetLoader {
 
         pistol = Gdx.audio.newSound(Gdx.files.internal("sounds/pistol.mp3"));
         jump = Gdx.audio.newSound(Gdx.files.internal("sounds/jump.mp3"));
+        swap = Gdx.audio.newSound(Gdx.files.internal("sounds/swap.mp3"));
+        end = Gdx.audio.newSound(Gdx.files.internal("sounds/end.mp3"));
+        gun = Gdx.audio.newSound(Gdx.files.internal("sounds/gun.mp3"));
+        tarcza = Gdx.audio.newSound(Gdx.files.internal("sounds/tarcza.mp3"));
     }
 
 
