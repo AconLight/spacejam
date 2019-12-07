@@ -44,6 +44,7 @@ public class Game extends MyScene {
         isOver = true;
         AssetLoader.soundtrack_menu.play();
         AssetLoader.soundtrack.stop();
+        AssetLoader.end.play();
     }
 
 
@@ -54,6 +55,7 @@ public class Game extends MyScene {
         isOver = true;
         AssetLoader.soundtrack_menu.play();
         AssetLoader.soundtrack.stop();
+        AssetLoader.end.play();
     }
 
 
