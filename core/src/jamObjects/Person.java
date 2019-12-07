@@ -1,6 +1,7 @@
 package jamObjects;
 
 import boost.GameObject;
+import com.badlogic.gdx.Gdx;
 import stefan.PlayerGenerator;
 
 public class Person extends GameObject {
@@ -10,6 +11,7 @@ public class Person extends GameObject {
     public Person() {
         super();
         animation = PlayerGenerator.generate();
+        animation.setScale(4);
         addActor(animation);
     }
 

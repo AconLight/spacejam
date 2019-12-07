@@ -16,7 +16,7 @@ public class Menu extends MyScene {
     public Menu() {
         super();
         bg = AssetLoader.getAsset("bgSplash");
-        bg.setShader("invert");
+        bg.setShader("drunk");
         quit = AssetLoader.getAsset("quit");
         quit.addComponent(new Clickable(quit, (SpriteObject) quit, () -> Gdx.app.exit()));
         quit.setPosition(1920/2 - 320, 1280/2 - 128 - 128 - 64);

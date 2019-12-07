@@ -1,5 +1,6 @@
 package boost;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -15,12 +16,16 @@ public class SpriteObject extends GameObject {
 
     public Animation<TextureRegion> currentAnimation;
 
+
+    public Color color;
+
     private float time;
 
     public SpriteObject() {
         super();
         animations = new HashMap<>();
         time = 0;
+        color = Color.WHITE;
     }
 
     public SpriteObject(float index) {
@@ -39,9 +44,11 @@ public class SpriteObject extends GameObject {
         time += delta;
     }
 
+
     @Override
     public void draw(Batch batch, float parentAlfa) {
         batch.setShader(shader);
+        batch.setColor(color);
         if (GameObjectManager.currentIndex == index) {
             super.draw(batch, parentAlfa * alfa);
             if (currentAnimation != null) {

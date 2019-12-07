@@ -18,7 +18,7 @@ public class GameLoader {
         ArrayList<GameObject> persons = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             GameObject gameObject = new Person();
-            gameObject.setPosition(rand.nextInt(1800), 10);
+            gameObject.setPosition(rand.nextInt(1000), 10);
             persons.add(gameObject);
         }
 
