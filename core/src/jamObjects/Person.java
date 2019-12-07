@@ -11,6 +11,7 @@ import com.mygdx.gameComponents.Movement;
 import com.mygdx.gameComponents.MovementDrag;
 import com.mygdx.scenes.MySceneManager;
 import stefan.PlayerGenerator;
+import wojtek.GameLoader;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -287,6 +288,8 @@ public class Person extends GameObject {
                 if (playerId == 1) {
                     MySceneManager.game.winRight();
                 }
+
+                MySceneManager.game.stage.addActor(GameLoader.createPerson());
                 playerId = p.person.playerId;
                 p.person.playerId = 0;
                 p.isDestroyed = true;

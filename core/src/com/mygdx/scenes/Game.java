@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Game extends MyScene {
 
     GameObject bg;
-    ArrayList<GameObject> gameObjects;
+    public ArrayList<GameObject> gameObjects;
     ArrayList<Projectile> projToRemove;
     float time;
     public boolean isOver;
@@ -57,19 +57,21 @@ public class Game extends MyScene {
     }
 
 
-
     public void act() {
         super.act();
         if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY) && isOver) {
             MySceneManager.switchToScene(MySceneManager.menu);
         }
         time += Gdx.graphics.getDeltaTime();
+
         bg.shader.begin();
         bg.shader.setUniformf("time", time/10);
         bg.shader.end();
         for (Projectile projectile: projToRemove) {
+            Gdx.app.log("start", "start");
             for (GameObject go : gameObjects) {
                 if (go instanceof Person) {
+                    Gdx.app.log("start", "go");
                     ((Person) go).projectiles.remove(projectile);
                 }
             }
