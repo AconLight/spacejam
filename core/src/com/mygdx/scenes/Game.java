@@ -10,8 +10,12 @@ import java.util.ArrayList;
 
 public class Game extends MyScene {
 
+    GameObject bg;
     public Game() {
         super();
+        bg = AssetLoader.getAsset("bg");
+        bg.setScale(4);
+        stage.addActor(bg);
         ArrayList<GameObject> gameObjects = GameLoader.load();
         for (GameObject go: gameObjects) {
             stage.addActor(go);

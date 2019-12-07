@@ -63,6 +63,7 @@ public class AssetLoader {
         createAsset("graphics/sprites/quit.png", "quit");
         createAsset("graphics/sprites/play.png", "play");
         createAsset("graphics/sprites/platform1.png", "platform1");
+        createAsset("graphics/sprites/background.png", "bg");
         loadAnimations();
     }
 
