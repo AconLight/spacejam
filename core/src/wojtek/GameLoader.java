@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GameLoader {
+
+    public static ArrayList<Platform> platforms;
+
     public static ArrayList<GameObject> load() {
         Random rand = new Random();
 
@@ -19,15 +22,22 @@ public class GameLoader {
 
 
         // Platforms
-        ArrayList<Platform> platforms = new ArrayList<>();
+        platforms = new ArrayList<>();
         platforms.addAll(PlatformGenerator.generate());
 
         // Persons
         ArrayList<GameObject> persons = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            GameObject gameObject = new Person(platforms, rand.nextInt(1000)+500, 100, 0);
-            persons.add(gameObject);
-        }
+
+
+        persons.add(new Person(platforms, 300, 300, 0));
+        persons.add(new Person(platforms, 700, 600, 0));
+        persons.add(new Person(platforms, 1600, 270, 0));
+        persons.add(new Person(platforms, 1050, 310, 0));
+
+        persons.add(createPerson());
+        persons.add(createPerson());
+        persons.add(createPerson());
+
         Person gameObject = new Person(platforms, 100, 100, 0);
         gameObject.setSkill(new Pistol(gameObject));
         gameObject.playerId = 1;
@@ -42,5 +52,14 @@ public class GameLoader {
         gameObjects.addAll(platforms);
         gameObjects.addAll(persons);
         return gameObjects;
+    }
+
+    public static GameObject createPerson(){
+        Random random = new Random();
+
+        if(random.nextBoolean())
+            return new Person(platforms, 1750, 950, -1);
+        else
+            return new Person(platforms, -250, 900, 1);
     }
 }
