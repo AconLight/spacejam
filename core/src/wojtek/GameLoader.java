@@ -28,6 +28,7 @@ public class GameLoader {
         // Persons
         ArrayList<GameObject> persons = new ArrayList<>();
 
+
         persons.add(new Person(platforms, 300, 300, 0));
         persons.add(new Person(platforms, 700, 600, 0));
         persons.add(new Person(platforms, 1600, 270, 0));

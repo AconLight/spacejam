@@ -45,7 +45,7 @@ public class Pistol extends Skill {
             float r = (float) Math.sqrt(r2);
             float xx = dx / r * 3000;
             float yy = dy / r * 3000;
-            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 150, xx, yy, person));
+            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 250, xx, yy, person));
         }
     }
 }

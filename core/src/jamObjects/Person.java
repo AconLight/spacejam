@@ -271,7 +271,7 @@ public class Person extends GameObject {
         for (Projectile p: projectiles) {
             if (p.person != this && !p.isDestroyed && !p.person.skill.isUsed)
             if (p.getX() + 20 > getX() && p.getX() < getX() + 150 &&
-                    p.getY() + 20 > getY() && p.getY() < getY() + 250) {
+                    p.getY() + 20 > getY() + 30 && p.getY() < getY() + 280) {
                 if (skill instanceof PistolShield) {
                     if (((PistolShield) skill).lives > 0) {
                         ((PistolShield) skill).lives--;
@@ -286,6 +286,7 @@ public class Person extends GameObject {
                 p.isDestroyed = true;
                 p.person.skill.isUsed = true;
                 p.person.destroy();
+                MySceneManager.game.stage.addActor(new Blood(p.person.getX(), p.person.getY()));
                 MySceneManager.game.removeProjectile(p);
                 Gdx.app.log("Person", "colllllllllllllllllllllllllllllllllllllllllll");
                 setAsPlayer();

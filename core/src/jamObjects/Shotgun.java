@@ -51,9 +51,9 @@ public class Shotgun extends Skill {
             float xx = dx / r * 1500;
             float yy = dy / r * 1500;
             Random rand = new Random();
-            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 150, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
-            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 150, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
-            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 150, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
+            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 250, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
+            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 250, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
+            MySceneManager.game.addProjectile(new Projectile(person.getX() + 75, person.getY() + 250, xx - 300 + rand.nextInt(600), yy - 300 + rand.nextInt(600), person));
         }
     }
 }
