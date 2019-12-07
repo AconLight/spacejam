@@ -5,6 +5,7 @@ import boost.GameComponent;
 import boost.GameObject;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.math.Vector2;
 import com.mygdx.gameComponents.Movement;
 import com.mygdx.gameComponents.MovementDrag;
 import stefan.PlayerGenerator;
@@ -13,12 +14,15 @@ import java.util.ArrayList;
 
 public class Person extends GameObject {
 
+
+    public GameObject aim;
     public int playerId;
     public boolean isStanding;
     public GameObject animationRight, animationLeft, animation, animationJumpRight, animationJumpLeft;
     public Movement movement;
     public MovementDrag movementDrag;
     ArrayList<Platform> platforms;
+    Skill skill;
 
     public Person(ArrayList<Platform> platforms, float x, float y) {
         super();
@@ -38,6 +42,19 @@ public class Person extends GameObject {
         addComponent(movement);
         movementDrag = new MovementDrag(movement, 0.92f);
         addComponent(movementDrag);
+
+        aim = AssetLoader.getAsset("aim");
+        aim.setPosition(75, 150);
+    }
+
+    public void setSkill(Skill skill) {
+        removeActor(skill);
+        this.skill = skill;
+        addActor(skill);
+    }
+
+    public void setAsPlayer() {
+        addActor(aim);
     }
 
     public void removeAnimations() {
@@ -76,6 +93,7 @@ public class Person extends GameObject {
     @Override
     public void act(float delta) {
         super.act(delta);
+
         if (isDown) {
             downTime += delta;
             if (downTime > 0.5f) {
@@ -114,7 +132,8 @@ public class Person extends GameObject {
             }
         }
 
-
+        float aimX = aim.getX();
+        float aimY = aim.getY();
         float ax = 0;
         float ay = -4500;
         float vx = movement.velocity.x;
@@ -123,11 +142,16 @@ public class Person extends GameObject {
         if (playerId == 1) {
             if (Gdx.input.isKeyPressed(Input.Keys.D)) {
                 ax += 2400;
+                aimX += 500*delta;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.A)) {
                 ax -= 2400;
+                aimX -= 500*delta;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.W)) {
+                aimY += 500*delta;
+            }
+            if (Gdx.input.isKeyPressed(Input.Keys.F)) {
                 if (isStanding) {
                     vy += 3300;
                     isStanding = false;
@@ -135,19 +159,30 @@ public class Person extends GameObject {
                 ay += 1000;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.S)) {
+                aimY -= 500*delta;
                 ay -= 100;
                 isDown = true;
+            }
+            if (Gdx.input.isKeyPressed(Input.Keys.G)) {
+                if (skill != null) {
+                    skill.use();
+                }
             }
         }
 
         if (playerId == 2) {
             if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
                 ax += 2400;
+                aimX += 500*delta;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
                 ax -= 2400;
+                aimX -= 500*delta;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+                aimY += 500*delta;
+            }
+            if (Gdx.input.isKeyPressed(Input.Keys.O)) {
                 if (isStanding) {
                     vy += 3300;
                     isStanding = false;
@@ -155,10 +190,23 @@ public class Person extends GameObject {
                 ay += 1000;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+                aimY -= 500*delta;
                 ay -= 100;
                 isDown = true;
             }
+            if (Gdx.input.isKeyPressed(Input.Keys.P)) {
+                if (skill != null) {
+                    skill.use();
+                }
+            }
         }
+        aimX -= 75;
+        aimY -= 150;
+        aimX *= 0.96f;
+        aimY *= 0.96f;
+        aimX += 75;
+        aimY += 150;
+        aim.setPosition(aimX, aimY);
         movement.acceleration.set(ax, ay);
         movement.velocity.set(vx, vy);
     }

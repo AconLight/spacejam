@@ -4,7 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 public class MyScene {
-    protected Stage stage;
+    public Stage stage;
     protected GameObjectRenderer renderer;
 
     public MyScene() {
