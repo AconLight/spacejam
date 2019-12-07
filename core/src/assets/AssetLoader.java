@@ -62,8 +62,6 @@ public class AssetLoader {
         createAsset("square.png", "square");
         createAsset("graphics/sprites/quit.png", "quit");
         createAsset("graphics/sprites/play.png", "play");
-        createAsset("graphics/sprites/platform1.png", "platform1");
-        createAsset("graphics/sprites/platform2.png", "platform2");
         createAsset("graphics/sprites/background.png", "bg");
         loadAnimations();
     }
@@ -100,6 +98,8 @@ public class AssetLoader {
         createAnimation("head", "head");
         createAnimation("legs", "legs");
         createAnimation("body", "body");
+        createAnimation("small", "small");
+        createAnimation("platform1", "platform1");
     }
 
 

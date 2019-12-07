@@ -24,7 +24,7 @@ public class PlayerGenerator {
         body.chooseAnimation("body"  + random.nextInt(nBodys));
         SpriteObject legs = AssetLoader.getAnimation("legs");
         legs.chooseAnimation("legs" + random.nextInt(nLegs));
-        legs.currentAnimation.setFrameDuration(0.125f);
+       // legs.currentAnimation.setFrameDuration(0.125f);
         legs.color = new Color(0.4f, 0.5f, 0.7f, 1f);
 
 
