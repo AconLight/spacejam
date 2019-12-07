@@ -19,12 +19,12 @@ public class PlayerGenerator {
         Random random = new Random();
 
         SpriteObject head = AssetLoader.getAnimation("head");
-        head.chooseAnimation("head" + random.nextInt(nHeads));
+        head.chooseAnimation("head" + random.nextInt(nHeads) + "_right");
         SpriteObject body = AssetLoader.getAnimation("body");
-        body.chooseAnimation("body"  + random.nextInt(nBodys));
+        body.chooseAnimation("body"  + random.nextInt(nBodys) + "_right");
         SpriteObject legs = AssetLoader.getAnimation("legs");
-        legs.chooseAnimation("legs" + random.nextInt(nLegs));
-        legs.currentAnimation.setFrameDuration(0.125f);
+        legs.chooseAnimation("legs" + random.nextInt(nLegs) + "_right");
+       // legs.currentAnimation.setFrameDuration(0.125f);
         legs.color = new Color(0.4f, 0.5f, 0.7f, 1f);
 
 

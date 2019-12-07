@@ -1,5 +1,6 @@
 package jamObjects;
 
+import assets.AssetLoader;
 import boost.GameComponent;
 import boost.GameObject;
 import com.badlogic.gdx.Gdx;
@@ -26,10 +27,15 @@ public class Person extends GameObject {
         isStanding = false;
         playerId = 0;
         animation = PlayerGenerator.generate();
+        animationRight = PlayerGenerator.generate();
+        animationLeft = PlayerGenerator.generate();
+        animationJumpLeft = PlayerGenerator.generate();
+        animationJumpRight = PlayerGenerator.generate();
         animation.setScale(4);
         addActor(animation);
+        //addActor(AssetLoader.getAsset("platform1"));
         movement = new Movement(this);
-        animation.addComponent(movement);
+        addComponent(movement);
         movementDrag = new MovementDrag(movement, 0.92f);
         addComponent(movementDrag);
     }
@@ -43,25 +49,25 @@ public class Person extends GameObject {
     }
 
     public void setIdle() {
-        removeAnimations();
-        addActor(animation);
+//        removeAnimations();
+//        addActor(animation);
     }
 
     public void setRight() {
-        removeAnimations();
-        addActor(animationRight);
+//        removeAnimations();
+//        addActor(animationRight);
     }
     public void setLeft() {
-        removeAnimations();
-        addActor(animationLeft);
+//        removeAnimations();
+//        addActor(animationLeft);
     }
     public void setJumpRight() {
-        removeAnimations();
-        addActor(animationJumpRight);
+//        removeAnimations();
+//        addActor(animationJumpRight);
     }
     public void setJumpLeft() {
-        removeAnimations();
-        addActor(animationJumpRight);
+//        removeAnimations();
+//        addActor(animationJumpRight);
     }
 
     float downTime = 0;
@@ -78,8 +84,8 @@ public class Person extends GameObject {
             }
         }
 
-        if (movement.position.y <= 0) {
-            movement.position.set(movement.position.x, 0);
+        if (movement.position.y <= -200) {
+            movement.position.set(movement.position.x, -200);
             movement.velocity.set(movement.velocity.x, 0);
             isStanding = true;
         }
@@ -90,10 +96,10 @@ public class Person extends GameObject {
                     );
             Gdx.app.log("Person", getX() + ", " + getY());
             if (movement.velocity.y < 0 && !isDown)
-            if (movement.position.x + 150 > p.getX() && movement.position.x < p.getX() + p.sprite.getWidth()-100 &&
-                    movement.position.y > p.getY() + p.sprite.getHeight() - 160 && movement.position.y < p.getY() + p.sprite.getHeight()-150) {
+            if (movement.position.x + 50 > p.getX() && movement.position.x < p.getX() + p.sprite.getWidth()-20 &&
+                    movement.position.y > p.getY() + p.sprite.getHeight() - 130 && movement.position.y < p.getY() + p.sprite.getHeight()-105) {
                 Gdx.app.log("Person", "col");
-                movement.position.set(movement.position.x, p.getY() + p.sprite.getHeight()-150);
+                movement.position.set(movement.position.x, p.getY() + p.sprite.getHeight()-105);
                 movement.velocity.set(movement.velocity.x, 0);
                 isStanding = true;
                 if (movement.velocity.x >= 0.1f) {

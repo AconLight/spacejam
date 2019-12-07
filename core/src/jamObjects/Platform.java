@@ -13,9 +13,9 @@ public class Platform extends GameObject {
     public Platform(float x, float y, String name) {
         super();
         setPosition(x, y);
-        sprite = AssetLoader.getAsset(name);
-        width = sprite.getWidth();
-        Gdx.app.log("Platform", sprite.getWidth() + ", " + sprite.getHeight());
+        sprite = AssetLoader.getAnimation(name);
+        ((SpriteObject) sprite).chooseAnimation("asd");
+        Gdx.app.log("Plstform", "" + (((SpriteObject) sprite).animations.size()));
         addActor(sprite);
     }
 }

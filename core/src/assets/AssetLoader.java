@@ -34,12 +34,22 @@ public class AssetLoader {
 
     public static SpriteObject getAnimation(String name, float index) {
         SpriteObject gameObject = new SpriteObject(index);
+        for (String key: animations.get(name).keySet()) {
+            TextureRegion tex = animations.get(name).get(key).getKeyFrames()[0];
+            gameObject.setBounds(0, 0, tex.getRegionWidth(), tex.getRegionHeight());
+            break;
+        }
         gameObject.animations.putAll(animations.get(name));
         return gameObject;
     }
 
     public static SpriteObject getAnimation(String name) {
         SpriteObject gameObject = new SpriteObject();
+        for (String key: animations.get(name).keySet()) {
+            TextureRegion tex = animations.get(name).get(key).getKeyFrames()[0];
+            gameObject.setBounds(0, 0, tex.getRegionWidth(), tex.getRegionHeight());
+            break;
+        }
         gameObject.animations.putAll(animations.get(name));
         return gameObject;
     }
@@ -62,8 +72,8 @@ public class AssetLoader {
         createAsset("square.png", "square");
         createAsset("graphics/sprites/quit.png", "quit");
         createAsset("graphics/sprites/play.png", "play");
-        createAsset("graphics/sprites/platform1.png", "platform1");
         createAsset("graphics/sprites/background.png", "bg");
+        createAsset("graphics/sprites/platform0.png", "platform1");
         loadAnimations();
     }
 
@@ -99,6 +109,8 @@ public class AssetLoader {
         createAnimation("head", "head");
         createAnimation("legs", "legs");
         createAnimation("body", "body");
+        createAnimation("small", "small");
+        createAnimation("platform1", "platform1");
     }
 
 
