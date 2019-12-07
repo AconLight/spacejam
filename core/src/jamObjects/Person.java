@@ -171,14 +171,18 @@ public class Person extends GameObject {
                 aimX -= 500*delta;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.W)) {
-                aimY += 500*delta;
-            }
-            if (Gdx.input.isKeyPressed(Input.Keys.F)) {
                 if (isStanding) {
-                    vy += 3300;
+                    vy += 2500;
                     isStanding = false;
+                    if (movement.velocity.x >= 0.1f) {
+                        setJumpRight();
+                    }
+                    else if (movement.velocity.x <= -0.1f) {
+                        setJumpLeft();
+                    }
                 }
-                ay += 1000;
+                ay += 1700;
+                aimY += 500*delta;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.S)) {
                 aimY -= 500*delta;
@@ -202,14 +206,18 @@ public class Person extends GameObject {
                 aimX -= 500*delta;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-                aimY += 500*delta;
-            }
-            if (Gdx.input.isKeyPressed(Input.Keys.O)) {
                 if (isStanding) {
-                    vy += 3300;
+                    vy += 2500;
                     isStanding = false;
+                    if (movement.velocity.x >= 0.1f) {
+                        setJumpRight();
+                    }
+                    else if (movement.velocity.x <= -0.1f) {
+                        setJumpLeft();
+                    }
                 }
-                ay += 1000;
+                ay += 1700;
+                aimY += 500*delta;
             }
             if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
                 aimY -= 500*delta;
@@ -242,6 +250,7 @@ public class Person extends GameObject {
                         ((PistolShield) skill).lives--;
                         ((PistolShield) skill).shield();
                         p.isDestroyed = true;
+                        MySceneManager.game.removeProjectile(p);
                         continue;
                     }
                 }

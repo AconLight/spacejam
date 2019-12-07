@@ -15,7 +15,8 @@ public class Menu extends MyScene {
     float time, startGameTime;
     public Menu() {
         super();
-        bg = AssetLoader.getAsset("bgSplash");
+        bg = AssetLoader.getAsset("bg");
+        bg.setScale(4);
         bg.setShader("drunk");
         quit = AssetLoader.getAsset("quit");
         quit.addComponent(new Clickable(quit, (SpriteObject) quit, () -> Gdx.app.exit()));
