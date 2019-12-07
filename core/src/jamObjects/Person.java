@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class Person extends GameObject {
 
-
+    public ArrayList<Projectile> projectiles;
     public GameObject aim;
     public int playerId;
     public boolean isStanding;
@@ -26,6 +26,7 @@ public class Person extends GameObject {
 
     public Person(ArrayList<Platform> platforms, float x, float y) {
         super();
+        projectiles = new ArrayList<>();
         setPosition(x, y);
         this.platforms = platforms;
         isStanding = false;
