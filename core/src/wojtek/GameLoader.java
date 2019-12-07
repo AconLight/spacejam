@@ -25,7 +25,7 @@ public class GameLoader {
         // Persons
         ArrayList<GameObject> persons = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            GameObject gameObject = new Person(platforms, rand.nextInt(1000)+500, 100);
+            GameObject gameObject = new Person(platforms, rand.nextInt(1000)+500, 100, 0);
             persons.add(gameObject);
         }
         Person gameObject = new Person(platforms, 100, 100, 0);

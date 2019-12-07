@@ -84,6 +84,7 @@ public class AssetLoader {
         createAsset("graphics/sprites/pistolLeft.png", "pistolLeft");
         createAsset("graphics/sprites/shotgun.png", "shotgun");
         createAsset("graphics/sprites/shotgunLeft.png", "shotgunLeft");
+        createAsset("graphics/sprites/blood.png", "blood");
         loadAnimations();
 
         soundtrack = Gdx.audio.newMusic(Gdx.files.internal("sounds/soundtrack.wav"));
@@ -154,4 +155,6 @@ public class AssetLoader {
         }
         return dirs;
     }
+
+
 }
