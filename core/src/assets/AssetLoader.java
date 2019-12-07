@@ -94,9 +94,9 @@ public class AssetLoader {
 
     public static void loadAnimations() {
         createAnimation("jade", "jade");
-        createAnimation("head0", "head0");
-        createAnimation("legs0", "legs0");
-        createAnimation("body0", "body0");
+        createAnimation("head", "head");
+        createAnimation("legs", "legs");
+        createAnimation("body", "body");
     }
 
 

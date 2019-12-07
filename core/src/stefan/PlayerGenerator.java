@@ -16,9 +16,12 @@ public class PlayerGenerator {
         GameObject player = new GameObject();
         Random random = new Random();
 
-        SpriteObject head = AssetLoader.getAnimation("head" + random.nextInt(nHeads));
-        SpriteObject body = AssetLoader.getAnimation("body" + random.nextInt(nBodys));
-        SpriteObject legs = AssetLoader.getAnimation("legs" + random.nextInt(nLegs));
+        SpriteObject head = AssetLoader.getAnimation("head");
+        head.chooseAnimation("head" + random.nextInt(nHeads));
+        SpriteObject body = AssetLoader.getAnimation("body");
+        body.chooseAnimation("body"  + random.nextInt(nBodys));
+        SpriteObject legs = AssetLoader.getAnimation("legs");
+        legs.chooseAnimation("legs" + random.nextInt(nLegs));
 
         player.addActor(legs);
         player.addActor(body);
