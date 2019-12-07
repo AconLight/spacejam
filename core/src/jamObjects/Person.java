@@ -43,15 +43,15 @@ public class Person extends GameObject {
         float g = random.nextFloat();
         float b = random.nextFloat();
 
-        animation = PlayerGenerator.generate();
+        animation = PlayerGenerator.generate(r, g, b);
         animation.setScale(4);
         animationRight = PlayerGenerator.generateRight(r, g, b);
         animationRight.setScale(4);
         animationLeft = PlayerGenerator.generateLeft(r, g, b);
         animationLeft.setScale(4);
-        animationJumpLeft = PlayerGenerator.generate();
+        animationJumpLeft = PlayerGenerator.generateJumpLeft(r, g, b);
         animationJumpLeft.setScale(4);
-        animationJumpRight = PlayerGenerator.generate();
+        animationJumpRight = PlayerGenerator.generateJumpRight(r, g, b);
         animationJumpRight.setScale(4);
 
         addActor(animation);
@@ -67,8 +67,7 @@ public class Person extends GameObject {
 
     public void setIdle() {
         removeAnimations();
-        //addActor(animation);
-        addActor(animationRight);
+        addActor(animation);
     }
 
     public void setRight() {
@@ -82,13 +81,11 @@ public class Person extends GameObject {
     }
     public void setJumpRight() {
         removeAnimations();
-        //addActor(animationJumpRight);
-        addActor(animationRight);
+        addActor(animationJumpRight);
     }
     public void setJumpLeft() {
         removeAnimations();
-        //addActor(animationJumpRight);
-        addActor(animationLeft);
+        addActor(animationJumpRight);
     }
 
     float downTime = 0;
