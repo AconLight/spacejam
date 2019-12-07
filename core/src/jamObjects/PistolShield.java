@@ -20,7 +20,7 @@ public class PistolShield extends Skill {
         addActor(pistolR);
         shield = AssetLoader.getAsset("shield");
         shield.setPosition(70, 130);
-        shield.setShader("drunk");
+        shield.setShader("drunk2");
         addActor(shield);
         AssetLoader.tarcza.play();
     }
