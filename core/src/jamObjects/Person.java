@@ -26,9 +26,11 @@ public class Person extends GameObject {
     public MovementDrag movementDrag;
     ArrayList<Platform> platforms;
     Skill skill;
+    int direction;
 
-    public Person(ArrayList<Platform> platforms, float x, float y) {
+    public Person(ArrayList<Platform> platforms, float x, float y, int direction) {
         super();
+        this.direction = direction;
         projectiles = new ArrayList<>();
         setPosition(x, y);
         this.platforms = platforms;
@@ -132,6 +134,18 @@ public class Person extends GameObject {
             isStanding = true;
         }
 
+        if (playerId != 0) {
+            if (movement.position.x <= -100) {
+                movement.position.set(-100, movement.position.y);
+                movement.velocity.set(-movement.velocity.x * 1.5f, movement.velocity.y + movement.position.y / 4f);
+            }
+
+            if (movement.position.x >= 1720) {
+                movement.position.set(1720, movement.position.y);
+                movement.velocity.set(-movement.velocity.x * 1.5f, movement.velocity.y + movement.position.y / 4f);
+            }
+        }
+
         for (Platform p: platforms) {
 
             if (movement.velocity.y < 0 && !isDown)
@@ -160,6 +174,16 @@ public class Person extends GameObject {
         float vx = movement.velocity.x;
         float vy = movement.velocity.y;
 
+        if (playerId == 0) {
+            ax += 2400*direction;
+            if (direction > 0) {
+                setRight();
+            } else if (direction < 0) {
+                setLeft();
+            } else {
+                setIdle();
+            }
+        }
         if (playerId == 1) {
             if (Gdx.input.isKeyPressed(Input.Keys.D)) {
                 ax += 2400;
