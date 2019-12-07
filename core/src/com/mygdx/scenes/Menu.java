@@ -72,6 +72,9 @@ public class Menu extends MyScene {
                 play.alfa = 0f;
                 quit.alfa = 0f;
                 SceneManager.switchToScene(MySceneManager.game);
+                AssetLoader.soundtrack_menu.dispose();
+                AssetLoader.soundtrack.play();
+                AssetLoader.soundtrack.setLooping(true);
                 startGameTime = -1;
             }
         }

@@ -9,28 +9,27 @@ public class PlatformGenerator {
 
     public static ArrayList<Platform> generate() {
         ArrayList<Platform> platforms = new ArrayList<>();
-        
+
         //podloga
-        for(int x = 0; x <= 1920; x+=200)
+        for(int x = -100; x <= 1920; x+=200)
             platforms.add(new Platform(x, 0, "platform1"));
 
-        platforms.add(new Platform(800, 40, "small"));
-        platforms.add(new Platform(1830, 40, "small"));
+        for(int x = 200; x <= 1920; x+=500)
+            platforms.add(new Platform(x, 0, "small"));
 
         platforms.add(new Platform(200, 270, "platform1"));
         platforms.add(new Platform(400, 270, "platform1"));
-        platforms.add(new Platform(350, 300, "small"));
+
         platforms.add(new Platform(1500, 270, "platform1"));
 
         platforms.add(new Platform(1000, 310, "platform1"));
 
         platforms.add(new Platform(0, 540, "platform1"));
+        platforms.add(new Platform(800, 600, "small"));
         platforms.add(new Platform(600, 600, "platform1"));
-        platforms.add(new Platform(1250, 410, "small"));
 
-        platforms.add(new Platform(1020, 600, "small"));
-
-
+        platforms.add(new Platform(1200, 700, "platform1"));
+        platforms.add(new Platform(1400, 700, "platform1"));
 
         return platforms;
     }

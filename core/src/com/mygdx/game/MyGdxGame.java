@@ -17,6 +17,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		AssetLoader.load();
 		manager = new MySceneManager();
 		manager.createSceneManager();
+		AssetLoader.soundtrack_menu.play();
 	}
 
 	@Override

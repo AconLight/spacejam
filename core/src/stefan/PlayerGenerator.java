@@ -75,11 +75,42 @@ public class PlayerGenerator {
     }
 
     public static GameObject generateJumpLeft(float r, float g, float b){
-        return generateLeft(r, g, b);
+
+        GameObject player = new GameObject();
+
+        SpriteObject head = AssetLoader.getAnimation("head");
+        head.chooseAnimation("head0" + /*random.nextInt(nHeads) +*/ "_left");
+        SpriteObject body = AssetLoader.getAnimation("body");
+        body.color = new Color(g, b, r, 1f);
+        body.chooseAnimation("body0"  + /*random.nextInt(nBodys) +*/ "_left");
+        SpriteObject legs = AssetLoader.getAnimation("legs");
+        legs.chooseAnimation("jump");
+        // legs.currentAnimation.setFrameDuration(0.125f);
+        legs.color = new Color(r, g, b, 1f);
+
+        player.addActor(legs);
+        player.addActor(body);
+        player.addActor(head);
+        return player;
     }
 
     public static GameObject generateJumpRight(float r, float g, float b){
-        return generateRight(r, g, b);
+        GameObject player = new GameObject();
+
+        SpriteObject head = AssetLoader.getAnimation("head");
+        head.chooseAnimation("head0_right");
+        SpriteObject body = AssetLoader.getAnimation("body");
+        body.color = new Color(g, b, r, 1f);
+        body.chooseAnimation("body0_right");
+        SpriteObject legs = AssetLoader.getAnimation("legs");
+        legs.chooseAnimation("jump");
+        // legs.currentAnimation.setFrameDuration(0.125f);
+        legs.color = new Color(r, g, b, 1f);
+
+        player.addActor(legs);
+        player.addActor(body);
+        player.addActor(head);
+        return player;
     }
 
 

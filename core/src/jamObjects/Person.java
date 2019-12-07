@@ -143,7 +143,6 @@ public class Person extends GameObject {
                 isStanding = true;
                 if (movement.velocity.x >= 0.1f) {
                     setRight();
-                    Gdx.app.log("dupa", "right");
                 }
                 else if (movement.velocity.x <= -0.1f) {
                     setLeft();
