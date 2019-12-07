@@ -3,6 +3,7 @@ package assets;
 import boost.GameObject;
 import boost.SpriteObject;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -23,6 +24,7 @@ import java.util.stream.Stream;
 public class AssetLoader {
     private static HashMap<String, Texture> assets = new HashMap<>();
     private static HashMap<String, HashMap<String, Animation<TextureRegion>>> animations = new HashMap<>();
+    public static Music soundtrack, soundtrack_menu;
 
     public static SpriteObject getAsset(String name) {
         SpriteObject gameObject = new SpriteObject();
@@ -63,6 +65,7 @@ public class AssetLoader {
     }
 
     public static void createAsset(String path, String name) {
+        Gdx.app.log("createAsset", path);
         assets.put(name, new Texture(Gdx.files.internal(path)));
     }
 
@@ -82,6 +85,10 @@ public class AssetLoader {
         createAsset("graphics/sprites/shotgun.png", "shotgun");
         createAsset("graphics/sprites/shotgunLeft.png", "shotgunLeft");
         loadAnimations();
+
+        soundtrack = Gdx.audio.newMusic(Gdx.files.internal("sounds/soundtrack.wav"));
+        soundtrack_menu = Gdx.audio.newMusic(Gdx.files.internal("sounds/soundtrack_menu.wav"));
+
     }
 
 
