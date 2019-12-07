@@ -153,6 +153,7 @@ public class AssetLoader {
             e.printStackTrace();
         }
         dirs.remove(0);
+        System.out.println(dirs);
         return dirs;
     }
 

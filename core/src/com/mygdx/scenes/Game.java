@@ -23,7 +23,7 @@ public class Game extends MyScene {
         super();
         time = 0;
         projToRemove = new ArrayList<>();
-        bg = AssetLoader.getAsset("howto");
+        bg = AssetLoader.getAsset("bg");
         bg.setShader("drunk");
         bg.setScale(4);
         stage.addActor(bg);

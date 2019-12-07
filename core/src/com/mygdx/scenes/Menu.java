@@ -15,7 +15,7 @@ public class Menu extends MyScene {
     float time, startGameTime;
     public Menu() {
         super();
-        bg = AssetLoader.getAsset("bg");
+        bg = AssetLoader.getAsset("howto");
         bg.setScale(4);
         bg.setShader("drunk");
         quit = AssetLoader.getAsset("quit");
