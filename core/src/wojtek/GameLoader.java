@@ -24,10 +24,15 @@ public class GameLoader {
         // Persons
         ArrayList<GameObject> persons = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            GameObject gameObject = new Person(platforms);
-            gameObject.setPosition(1920/2, 10);
+            GameObject gameObject = new Person(platforms, rand.nextInt(1000)+500, 10);
             persons.add(gameObject);
         }
+        Person gameObject = new Person(platforms, 100, 10);
+        gameObject.playerId = 1;
+        persons.add(gameObject);
+        Person gameObject2 = new Person(platforms, 1700, 10);
+        gameObject2.playerId = 2;
+        persons.add(gameObject2);
 
         gameObjects.addAll(platforms);
         gameObjects.addAll(persons);
