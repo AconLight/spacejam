@@ -281,6 +281,12 @@ public class Person extends GameObject {
                         continue;
                     }
                 }
+                if (playerId == 2) {
+                    MySceneManager.game.winLeft();
+                }
+                if (playerId == 1) {
+                    MySceneManager.game.winRight();
+                }
                 playerId = p.person.playerId;
                 p.person.playerId = 0;
                 p.isDestroyed = true;
@@ -298,6 +304,7 @@ public class Person extends GameObject {
                     setSkill(new PistolShield(this));
                 if (r == 2)
                     setSkill(new Shotgun(this));
+
             }
         }
     }

@@ -85,6 +85,8 @@ public class AssetLoader {
         createAsset("graphics/sprites/shotgun.png", "shotgun");
         createAsset("graphics/sprites/shotgunLeft.png", "shotgunLeft");
         createAsset("graphics/sprites/blood.png", "blood");
+        createAsset("graphics/sprites/leftWins.png", "leftWins");
+        createAsset("graphics/sprites/rightWins.png", "rightWins");
         loadAnimations();
 
         soundtrack = Gdx.audio.newMusic(Gdx.files.internal("sounds/soundtrack.wav"));

@@ -71,8 +71,9 @@ public class Menu extends MyScene {
                 bg.alfa = 0f;
                 play.alfa = 0f;
                 quit.alfa = 0f;
+                MySceneManager.game = new Game();
                 SceneManager.switchToScene(MySceneManager.game);
-                AssetLoader.soundtrack_menu.dispose();
+                AssetLoader.soundtrack_menu.stop();
                 AssetLoader.soundtrack.play();
                 AssetLoader.soundtrack.setLooping(true);
                 startGameTime = -1;
