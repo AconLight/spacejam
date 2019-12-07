@@ -94,23 +94,27 @@ public class Person extends GameObject {
     public void setRight() {
         removeAnimations();
         addActor(animationRight);
-        skill.right();
+        if(skill != null)
+            skill.right();
     }
     public void setLeft() {
 
         removeAnimations();
         addActor(animationLeft);
-        skill.left();
+        if(skill != null)
+            skill.left();
     }
     public void setJumpRight() {
         removeAnimations();
         addActor(animationJumpRight);
-        skill.right();
+        if(skill != null)
+            skill.right();
     }
     public void setJumpLeft() {
         removeAnimations();
         addActor(animationJumpRight);
-        skill.left();
+        if(skill != null)
+            skill.left();
     }
 
     float downTime = 0;
@@ -299,4 +303,7 @@ public class Person extends GameObject {
     public void destroy() {
         remove();
     }
+
+
+
 }
