@@ -8,9 +8,9 @@ import java.util.Random;
 
 public class PlayerGenerator {
 
-    static int  nHeads = 0,
-                nBodys = 0,
-                nLegs = 0;
+    static int  nHeads = 1,
+                nBodys = 1,
+                nLegs = 1;
 
     public static GameObject generate() {
         GameObject player = new GameObject();
