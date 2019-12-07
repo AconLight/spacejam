@@ -3,6 +3,7 @@ package jamObjects;
 import assets.AssetLoader;
 import boost.GameComponent;
 import boost.GameObject;
+import boost.SpriteObject;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.mygdx.gameComponents.Movement;
@@ -10,6 +11,7 @@ import com.mygdx.gameComponents.MovementDrag;
 import stefan.PlayerGenerator;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Person extends GameObject {
 
@@ -26,18 +28,33 @@ public class Person extends GameObject {
         this.platforms = platforms;
         isStanding = false;
         playerId = 0;
-        animation = PlayerGenerator.generate();
-        animationRight = PlayerGenerator.generate();
-        animationLeft = PlayerGenerator.generate();
-        animationJumpLeft = PlayerGenerator.generate();
-        animationJumpRight = PlayerGenerator.generate();
-        animation.setScale(4);
-        addActor(animation);
+        generateAnimations();
+
         //addActor(AssetLoader.getAsset("platform1"));
         movement = new Movement(this);
         addComponent(movement);
         movementDrag = new MovementDrag(movement, 0.92f);
         addComponent(movementDrag);
+    }
+
+    void generateAnimations(){
+        Random random = new Random();
+        float r = random.nextFloat();
+        float g = random.nextFloat();
+        float b = random.nextFloat();
+
+        animation = PlayerGenerator.generate();
+        animation.setScale(4);
+        animationRight = PlayerGenerator.generateRight(r, g, b);
+        animationRight.setScale(4);
+        animationLeft = PlayerGenerator.generateLeft(r, g, b);
+        animationLeft.setScale(4);
+        animationJumpLeft = PlayerGenerator.generate();
+        animationJumpLeft.setScale(4);
+        animationJumpRight = PlayerGenerator.generate();
+        animationJumpRight.setScale(4);
+
+        addActor(animation);
     }
 
     public void removeAnimations() {
@@ -49,25 +66,29 @@ public class Person extends GameObject {
     }
 
     public void setIdle() {
-//        removeAnimations();
-//        addActor(animation);
+        removeAnimations();
+        //addActor(animation);
+        addActor(animationRight);
     }
 
     public void setRight() {
-//        removeAnimations();
-//        addActor(animationRight);
+        removeAnimations();
+        addActor(animationRight);
     }
     public void setLeft() {
-//        removeAnimations();
-//        addActor(animationLeft);
+
+        removeAnimations();
+        addActor(animationLeft);
     }
     public void setJumpRight() {
-//        removeAnimations();
-//        addActor(animationJumpRight);
+        removeAnimations();
+        //addActor(animationJumpRight);
+        addActor(animationRight);
     }
     public void setJumpLeft() {
-//        removeAnimations();
-//        addActor(animationJumpRight);
+        removeAnimations();
+        //addActor(animationJumpRight);
+        addActor(animationLeft);
     }
 
     float downTime = 0;
@@ -104,6 +125,7 @@ public class Person extends GameObject {
                 isStanding = true;
                 if (movement.velocity.x >= 0.1f) {
                     setRight();
+                    Gdx.app.log("dupa", "right");
                 }
                 else if (movement.velocity.x <= -0.1f) {
                     setLeft();
