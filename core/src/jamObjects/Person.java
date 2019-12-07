@@ -208,6 +208,7 @@ public class Person extends GameObject {
                     else if (movement.velocity.x <= -0.1f) {
                         setJumpLeft();
                     }
+                    AssetLoader.jump.play();
                 }
                 ay += 1700;
                 aimY += 500*delta;
@@ -220,6 +221,7 @@ public class Person extends GameObject {
             if (Gdx.input.isKeyPressed(Input.Keys.G)) {
                 if (skill != null) {
                     skill.use();
+
                 }
             }
         }
@@ -243,6 +245,7 @@ public class Person extends GameObject {
                     else if (movement.velocity.x <= -0.1f) {
                         setJumpLeft();
                     }
+                    AssetLoader.jump.play();
                 }
                 ay += 1700;
                 aimY += 500*delta;
@@ -312,6 +315,7 @@ public class Person extends GameObject {
         }
     }
     public void destroy() {
+        AssetLoader.swap.play();
         remove();
     }
 

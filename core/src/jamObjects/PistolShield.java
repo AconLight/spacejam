@@ -21,6 +21,7 @@ public class PistolShield extends Skill {
         shield = AssetLoader.getAsset("shield");
         shield.setPosition(70, 130);
         addActor(shield);
+        AssetLoader.tarcza.play();
     }
     public void left() {
         removeActor(pistolR);

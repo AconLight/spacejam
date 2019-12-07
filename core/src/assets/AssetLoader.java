@@ -4,6 +4,7 @@ import boost.GameObject;
 import boost.SpriteObject;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import stefan.PlayerGenerator;
 
+import java.applet.AudioClip;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -25,6 +27,7 @@ public class AssetLoader {
     private static HashMap<String, Texture> assets = new HashMap<>();
     private static HashMap<String, HashMap<String, Animation<TextureRegion>>> animations = new HashMap<>();
     public static Music soundtrack, soundtrack_menu;
+    public static Sound pistol, jump, swap, end, gun, tarcza;
 
     public static SpriteObject getAsset(String name) {
         SpriteObject gameObject = new SpriteObject();
@@ -92,6 +95,12 @@ public class AssetLoader {
         soundtrack = Gdx.audio.newMusic(Gdx.files.internal("sounds/soundtrack.wav"));
         soundtrack_menu = Gdx.audio.newMusic(Gdx.files.internal("sounds/soundtrack_menu.wav"));
 
+        pistol = Gdx.audio.newSound(Gdx.files.internal("sounds/pistol.mp3"));
+        jump = Gdx.audio.newSound(Gdx.files.internal("sounds/jump.mp3"));
+        swap = Gdx.audio.newSound(Gdx.files.internal("sounds/swap.mp3"));
+        end = Gdx.audio.newSound(Gdx.files.internal("sounds/end.mp3"));
+        gun = Gdx.audio.newSound(Gdx.files.internal("sounds/gun.mp3"));
+        tarcza = Gdx.audio.newSound(Gdx.files.internal("sounds/tarcza.mp3"));
     }
 
 
