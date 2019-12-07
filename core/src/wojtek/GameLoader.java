@@ -28,12 +28,12 @@ public class GameLoader {
             GameObject gameObject = new Person(platforms, rand.nextInt(1000)+500, 100);
             persons.add(gameObject);
         }
-        Person gameObject = new Person(platforms, 100, 100);
+        Person gameObject = new Person(platforms, 100, 100, 0);
         gameObject.setSkill(new Pistol(gameObject));
         gameObject.playerId = 1;
         gameObject.setAsPlayer();
         persons.add(gameObject);
-        Person gameObject2 = new Person(platforms, 1700, 100);
+        Person gameObject2 = new Person(platforms, 1700, 100, 0);
         gameObject2.setSkill(new Pistol(gameObject2));
         gameObject2.playerId = 2;
         gameObject2.setAsPlayer();
