@@ -27,7 +27,7 @@ public class GameLoader {
         platforms.addAll(PlatformGenerator.generate());
 
         gameObjects.addAll(platforms);
-        //gameObjects.addAll(persons);
+        gameObjects.addAll(persons);
         return gameObjects;
     }
 }
