@@ -44,6 +44,7 @@ public class Game extends MyScene {
         isOver = true;
         AssetLoader.soundtrack_menu.play();
         AssetLoader.soundtrack.stop();
+        time2 = 0;
     }
 
 
@@ -54,14 +55,16 @@ public class Game extends MyScene {
         isOver = true;
         AssetLoader.soundtrack_menu.play();
         AssetLoader.soundtrack.stop();
+        time2 = 0;
     }
 
-
+    float time2;
     public void act() {
         super.act();
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY) && isOver) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY) && isOver && time2 > 2) {
             MySceneManager.switchToScene(MySceneManager.menu);
         }
+        time2 += Gdx.graphics.getDeltaTime();
         time += Gdx.graphics.getDeltaTime();
 
         bg.shader.begin();
