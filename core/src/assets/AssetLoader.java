@@ -133,6 +133,8 @@ public class AssetLoader {
     }
 
     public static void loadAnimations() {
+        System.out.println("siema");
+        getDirs(".");
         createAnimation("jade", "jade");
         createAnimation("head", "head");
         createAnimation("legs", "legs");
@@ -144,6 +146,7 @@ public class AssetLoader {
 
     public static List<String> getDirs(String path) {
         List<String> dirs = new ArrayList<>();
+        System.out.println("current path: " + Paths.get(".").toAbsolutePath());
         try (Stream<Path> walk = Files.walk(Paths.get(path))) {
 
             dirs = walk.filter(Files::isDirectory)
@@ -159,7 +162,7 @@ public class AssetLoader {
 
     public static List<String> getFiles(String path) {
         List<String> dirs = new ArrayList<>();
-        try (Stream<Path> walk = Files.walk(Paths.get(path))) {
+        try (Stream<Path> walk = Files.walk(Paths.get(path).toAbsolutePath())) {
 
             dirs = walk.filter(Files::isRegularFile)
                     .map(x -> path + "/" + x.getFileName().toString()).collect(Collectors.toList());
